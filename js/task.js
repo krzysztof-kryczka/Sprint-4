@@ -9,6 +9,10 @@ const addTask = (e) => {
         return alert('Nazwa zadania nie może być pusta.')
     }
 
+    if (tasks.includes(task.value.trim())) {
+        return alert('To zadanie już istnieje na liście.')
+    }
+
     tasks.push(task.value.trim())
     console.log(tasks)
     task.value = ''
