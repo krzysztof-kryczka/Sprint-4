@@ -33,6 +33,10 @@ const displayTasks = () => {
 
         const taskDeleteButton = document.createElement('button')
         taskDeleteButton.textContent = 'Usuń'
+        taskDeleteButton.addEventListener('click', () => {
+            tasks.splice(i, 1)
+            displayTasks()
+        })
 
         taskList.appendChild(listItem)
         listItem.appendChild(taskEditButton)
