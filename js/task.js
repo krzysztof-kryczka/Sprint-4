@@ -27,7 +27,16 @@ const displayTasks = () => {
     for (let i = 0; i < tasks.length; i++) {
         const listItem = document.createElement('li')
         listItem.textContent = tasks[i]
+
+        const taskEditButton = document.createElement('button')
+        taskEditButton.textContent = 'Edytuj'
+
+        const taskDeleteButton = document.createElement('button')
+        taskDeleteButton.textContent = 'Usuń'
+
         taskList.appendChild(listItem)
+        listItem.appendChild(taskEditButton)
+        listItem.appendChild(taskDeleteButton)
     }
 }
 
