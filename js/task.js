@@ -19,6 +19,41 @@ const addTask = (e) => {
     displayTasks()
 }
 
+editTask = (i) => {
+    const task = tasks[i]
+    const listItem = document.createElement('li')
+    const editInput = document.createElement('input')
+    editInput.value = task
+    const confirmButton = document.createElement('button')
+    confirmButton.textContent = 'Zatwierdź zmiany'
+    confirmButton.addEventListener('click', () => {
+        if (editInput.value.trim() === '') {
+            return alert('Nazwa zadania nie może być pusta.')
+        }
+        tasks[i] = editInput.value
+        displayTasks()
+    })
+
+    const taskDeleteButton = document.createElement('button')
+    taskDeleteButton.textContent = 'Usuń'
+    taskDeleteButton.addEventListener('click', () => {
+        tasks.splice(i, 1)
+        displayTasks()
+    })
+
+    listItem.appendChild(editInput)
+    listItem.appendChild(confirmButton)
+    listItem.appendChild(taskDeleteButton)
+
+    const taskList = document.querySelector('#taskList')
+    const existingListItem = taskList.querySelector(
+        'li:nth-child(' + (i + 1) + ')'
+    )
+    if (existingListItem) {
+        taskList.replaceChild(listItem, existingListItem)
+    }
+}
+
 const displayTasks = () => {
     const taskList = document.querySelector('#taskList')
     console.log(taskList)
@@ -30,7 +65,7 @@ const displayTasks = () => {
 
         const taskEditButton = document.createElement('button')
         taskEditButton.textContent = 'Edytuj'
-
+        taskEditButton.addEventListener('click', () => editTask(i))
         const taskDeleteButton = document.createElement('button')
         taskDeleteButton.textContent = 'Usuń'
         taskDeleteButton.addEventListener('click', () => {
