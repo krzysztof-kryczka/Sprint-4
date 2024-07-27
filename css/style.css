@@ -1,0 +1,40 @@
+body {
+    font-family: 'Segoe UI', 'Open Sans', sans-serif;
+}
+
+.task-form {
+    max-width: 450px;
+    display: flex;
+    column-gap: 20px;
+}
+
+.task-form input {
+    width: 100%;
+    padding: 4px;
+    font-family: inherit;
+    font-size: 20px;
+}
+
+input,
+li {
+    font-size: 20px;
+}
+
+button {
+    background-color: #fff;
+    border: 1px solid #f00;
+    border-radius: 10px;
+    color: #000;
+    cursor: pointer;
+    margin: 5px 10px;
+    padding: 5px;
+    text-align: center;
+    transition: all 0.5s;
+    font-family: inherit;
+    font-size: 18px;
+}
+
+button:hover {
+    background-color: #cf0707;
+    color: #fff;
+}
